@@ -8,12 +8,14 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+require('dotenv').config(); 
+const mongoURL = process.env.MONGO_URL;
 
 app.use(express.json());
 app.use(cors());
 
 // Database Connection With MongoDB
-mongoose.connect("mongodb+srv://superonspeed:aay84YVyEmYm3vQ@cluster0.3js4qqm.mongodb.net/e-commerce");
+mongoose.connect(mongoURL);
 
 // API Creation
 app.get("/", (req , res) => {
